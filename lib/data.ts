@@ -21,10 +21,10 @@ export type Match = {
 
 export const categories = [
   'Liga Profesional',
-  'Fútbol',
+  'Futbol',
   'Resultados',
   'Tenis',
-  'Básquetbol',
+  'Basquetbol',
   'World Cup 2026',
 ];
 
@@ -44,7 +44,7 @@ export const worldCupMatches: Match[] = [
     dateLabel: 'Dom 22 feb',
     time: '17:30',
     isLive: false,
-    teams: { home: 'España', away: 'Francia' },
+    teams: { home: 'Espana', away: 'Francia' },
     prices: { homeWin: 2.55, draw: 3.1, awayWin: 2.48 },
   },
   {
@@ -53,7 +53,7 @@ export const worldCupMatches: Match[] = [
     dateLabel: 'Dom 22 feb',
     time: '20:00',
     isLive: false,
-    teams: { home: 'USA', away: 'México' },
+    teams: { home: 'USA', away: 'Mexico' },
     prices: { homeWin: 2.29, draw: 3.4, awayWin: 2.95 },
   },
   {
@@ -62,7 +62,7 @@ export const worldCupMatches: Match[] = [
     dateLabel: 'Lun 23 feb',
     time: '14:00',
     isLive: false,
-    teams: { home: 'Alemania', away: 'Países Bajos' },
+    teams: { home: 'Alemania', away: 'Paises Bajos' },
     prices: { homeWin: 2.38, draw: 3.18, awayWin: 2.77 },
   },
   {
