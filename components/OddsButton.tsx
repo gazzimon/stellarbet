@@ -11,7 +11,7 @@ type OddsButtonProps = {
 };
 
 export default function OddsButton({ label, price, selected, variation = 0, onClick }: OddsButtonProps) {
-  const direction = variation > 0 ? '?' : variation < 0 ? '?' : '•';
+  const direction = variation > 0 ? '\u25B2' : variation < 0 ? '\u25BC' : '\u2014';
   const variationColor = variation > 0 ? 'text-accent' : variation < 0 ? 'text-rose-400' : 'text-slate-400';
 
   return (
