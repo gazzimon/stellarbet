@@ -37,7 +37,7 @@ export default function TicketSummary({
           <p>{match.teams.home} vs {match.teams.away}</p>
         </div>
         <div className="rounded-sm border border-line bg-panel2 p-2">
-          <p className="text-slate-400">Selección</p>
+          <p className="text-slate-400">Seleccion</p>
           <p className="font-semibold text-odd">{selectionLabel[selection]}</p>
         </div>
 
@@ -71,7 +71,7 @@ export default function TicketSummary({
               : 'cursor-not-allowed border-line bg-slate-700/30 text-slate-400'
           }`}
         >
-          Confirmar operación
+          Confirmar operacion
         </button>
       </div>
     </section>

@@ -117,7 +117,7 @@ export default function MatchLivePage() {
       <header className="mb-3 flex flex-wrap items-center justify-between gap-3 surface p-3">
         <div>
           <Link href="/" className="text-xs text-accent hover:underline">
-            <- Volver a Markets
+            {'<-'} Volver a Markets
           </Link>
           <h1 className="mt-1 text-lg font-bold">{match.teams.home} vs {match.teams.away}</h1>
         </div>
@@ -137,10 +137,10 @@ export default function MatchLivePage() {
           <VideoPanel home={match.teams.home} away={match.teams.away} premiumMember={premiumMember} />
 
           <section className="surface p-3">
-            <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-300">Estadísticas rápidas</h2>
+            <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-300">Estadisticas rapidas</h2>
             <div className="grid grid-cols-3 gap-2 text-center text-xs">
               <div className="rounded-sm border border-line bg-panel2 p-2">
-                <p className="text-slate-400">Posesión</p>
+                <p className="text-slate-400">Posesion</p>
                 <p className="mt-1 font-semibold">{quickStats.possession}</p>
               </div>
               <div className="rounded-sm border border-line bg-panel2 p-2">
@@ -183,7 +183,7 @@ export default function MatchLivePage() {
                 onClick={() => setSelected('away')}
               />
             </div>
-            <p className="mt-2 text-[11px] text-slate-400">Selección actual: {selectionMap[selected]}</p>
+            <p className="mt-2 text-[11px] text-slate-400">Seleccion actual: {selectionMap[selected]}</p>
           </section>
 
           <WalletPanel

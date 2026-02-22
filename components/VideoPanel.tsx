@@ -16,7 +16,7 @@ export default function VideoPanel({ home, away, premiumMember }: VideoPanelProp
         <div className={`absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(36,179,107,0.24),transparent_40%),radial-gradient(circle_at_70%_70%,rgba(245,217,106,0.15),transparent_35%)] ${premiumMember ? '' : 'blur-[1.2px]'}`} />
         <div className="absolute inset-0 flex items-center justify-center">
           <button type="button" className="rounded-full border border-white/30 bg-black/45 px-4 py-2 text-xs font-semibold text-white">
-            ? Reproducir
+            Reproducir
           </button>
         </div>
         <div className="absolute bottom-2 left-2 text-xs text-slate-300">

@@ -79,7 +79,7 @@ export default function WalletPanel({ onWalletStatusChange }: WalletPanelProps) 
             <p className="text-sm font-bold text-odd">{usdcBalance.toFixed(2)} USDC</p>
           </div>
           <button type="button" className="w-full rounded-sm border border-line bg-panel2 px-3 py-2 text-xs font-semibold text-slate-100 hover:border-slate-500">
-            Confirmar operación en Stellar
+            Confirmar operacion en Stellar
           </button>
           {!hasFreighter ? <p className="text-[11px] text-slate-400">Conectado en modo demo.</p> : null}
         </div>
