@@ -41,8 +41,7 @@ for (const file of filesToCheck) {
   if (nonAscii.length > 0) {
     console.log(`FOUND ${nonAscii.length} non-ASCII bytes:`);
     for (const item of nonAscii) {
-      const context = buf.slice(Math.max(0, item.offset - 10), item.offset + 10).toString('utf8', 0, 20);
-      console.log(`  offset=${item.offset} byte=0x${item.hex} context="${context}"`);
+      console.log(`  offset=${item.offset} byte=0x${item.hex}`);
     }
 
     // Replace non-ASCII bytes with '?' to make it valid ASCII
@@ -57,29 +56,34 @@ for (const file of filesToCheck) {
   }
 }
 
-// Also check if there's a symlink or v0-next-shadcn directory issue
+// Also check if there is a v0-next-shadcn directory
 const shadcnDir = '/vercel/share/v0-next-shadcn';
 if (existsSync(shadcnDir)) {
   console.log('\n--- /vercel/share/v0-next-shadcn EXISTS ---');
-  const shadcnData = join(shadcnDir, 'lib/data.ts');
-  const shadcnOdds = join(shadcnDir, 'components/OddsButton.tsx');
-  
-  if (existsSync(shadcnData)) {
-    const buf = readFileSync(shadcnData);
-    const nonAscii = [];
-    for (let i = 0; i < buf.length; i++) {
-      if (buf[i] > 127) nonAscii.push(i);
+  const shadcnFiles = [
+    'lib/data.ts',
+    'components/OddsButton.tsx',
+  ];
+  for (const file of shadcnFiles) {
+    const fullPath = join(shadcnDir, file);
+    if (existsSync(fullPath)) {
+      const buf = readFileSync(fullPath);
+      const nonAsciiCount = Array.from(buf).filter(b => b > 127).length;
+      console.log(`${file}: ${buf.length} bytes, ${nonAsciiCount} non-ASCII bytes`);
+      if (nonAsciiCount > 0) {
+        const cleaned = Buffer.alloc(buf.length);
+        for (let i = 0; i < buf.length; i++) {
+          cleaned[i] = buf[i] > 127 ? 63 : buf[i];
+        }
+        writeFileSync(fullPath, cleaned);
+        console.log(`CLEANED: ${file} in v0-next-shadcn`);
+      }
+    } else {
+      console.log(`${file}: does not exist in v0-next-shadcn`);
     }
-    console.log(`v0-next-shadcn/lib/data.ts: ${buf.length} bytes, ${nonAscii.length} non-ASCII`);
-  }
-  if (existsSync(shadcnOdds)) {
-    const buf = readFileSync(shadcnOdds);
-    const nonAscii = [];
-    for (let i = 0; i < buf.length; i++) {
-      if (buf[i] > 127) nonAscii.push(i);
-    }
-    console.log(`v0-next-shadcn/components/OddsButton.tsx: ${buf.length} bytes, ${nonAscii.length} non-ASCII`);
   }
 } else {
   console.log('\n/vercel/share/v0-next-shadcn does NOT exist');
 }
+
+console.log('\nDone!');
