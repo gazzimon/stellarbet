@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-bg text-slate-100 antialiased;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.surface {
+  @apply rounded-sm border border-line bg-panel;
+}
+
+.surface-soft {
+  @apply rounded-sm border border-line bg-panel2;
+}
