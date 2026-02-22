@@ -3,12 +3,12 @@
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useParams, useSearchParams } from 'next/navigation';
-import OddsButton from '@/components/OddsButton';
+import OddsBtn from '@/components/OddsBtn';
 import ProbabilityChart, { ProbabilityPoint } from '@/components/ProbabilityChart';
-import TicketSummary from '@/components/TicketSummary';
-import VideoPanel from '@/components/VideoPanel';
-import WalletPanel from '@/components/WalletPanel';
-import { getMatchById, Selection } from '@/lib/data';
+import BetTicket from '@/components/BetTicket';
+import LiveVideo from '@/components/LiveVideo';
+import WalletConnect from '@/components/WalletConnect';
+import { getMatchById, Selection } from '@/lib/matches';
 import { clamp } from '@/lib/utils';
 
 const selectionMap = {
@@ -134,7 +134,7 @@ export default function MatchLivePage() {
 
       <section className="grid grid-cols-1 gap-3 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="space-y-3">
-          <VideoPanel home={match.teams.home} away={match.teams.away} premiumMember={premiumMember} />
+          <LiveVideo home={match.teams.home} away={match.teams.away} premiumMember={premiumMember} />
 
           <section className="surface p-3">
             <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-300">Estadisticas rapidas</h2>
@@ -161,21 +161,21 @@ export default function MatchLivePage() {
           <section className="surface p-3">
             <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-300">Trading de outcome tokens</h2>
             <div className="grid grid-cols-3 gap-2">
-              <OddsButton
+              <OddsBtn
                 label="1"
                 price={prices.home}
                 selected={selected === 'home'}
                 variation={prices.home - previousPrices.home}
                 onClick={() => setSelected('home')}
               />
-              <OddsButton
+              <OddsBtn
                 label="X"
                 price={prices.draw}
                 selected={selected === 'draw'}
                 variation={prices.draw - previousPrices.draw}
                 onClick={() => setSelected('draw')}
               />
-              <OddsButton
+              <OddsBtn
                 label="2"
                 price={prices.away}
                 selected={selected === 'away'}
@@ -186,14 +186,14 @@ export default function MatchLivePage() {
             <p className="mt-2 text-[11px] text-slate-400">Seleccion actual: {selectionMap[selected]}</p>
           </section>
 
-          <WalletPanel
+          <WalletConnect
             onWalletStatusChange={({ connected, demoMode: isDemo }) => {
               setWalletConnected(connected);
               setDemoMode(isDemo);
             }}
           />
 
-          <TicketSummary
+          <BetTicket
             match={match}
             selection={selected}
             price={selectedPrice}

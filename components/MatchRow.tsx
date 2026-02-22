@@ -1,8 +1,8 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import type { Match, Selection } from '@/lib/data';
-import OddsButton from './OddsButton';
+import type { Match, Selection } from '@/lib/matches';
+import OddsBtn from './OddsBtn';
 
 type MatchRowProps = {
   match: Match;
@@ -12,7 +12,7 @@ export default function MatchRow({ match }: MatchRowProps) {
   const router = useRouter();
 
   const openMatch = (selection?: Selection) => {
-    const base = `/match/${match.id}`;
+    const base = `/game/${match.id}`;
     router.push(selection ? `${base}?selection=${selection}` : base);
   };
 
@@ -42,13 +42,13 @@ export default function MatchRow({ match }: MatchRowProps) {
         </div>
       </div>
       <div onClick={(e) => e.stopPropagation()}>
-        <OddsButton label="1" price={match.prices.homeWin} onClick={() => openMatch('home')} />
+        <OddsBtn label="1" price={match.prices.homeWin} onClick={() => openMatch('home')} />
       </div>
       <div onClick={(e) => e.stopPropagation()}>
-        <OddsButton label="X" price={match.prices.draw} onClick={() => openMatch('draw')} />
+        <OddsBtn label="X" price={match.prices.draw} onClick={() => openMatch('draw')} />
       </div>
       <div onClick={(e) => e.stopPropagation()}>
-        <OddsButton label="2" price={match.prices.awayWin} onClick={() => openMatch('away')} />
+        <OddsBtn label="2" price={match.prices.awayWin} onClick={() => openMatch('away')} />
       </div>
     </div>
   );

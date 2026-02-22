@@ -1,10 +1,10 @@
-type VideoPanelProps = {
+type LiveVideoProps = {
   home: string;
   away: string;
   premiumMember: boolean;
 };
 
-export default function VideoPanel({ home, away, premiumMember }: VideoPanelProps) {
+export default function LiveVideo({ home, away, premiumMember }: LiveVideoProps) {
   return (
     <section className="surface p-3">
       <div className="mb-2 flex items-center justify-between">

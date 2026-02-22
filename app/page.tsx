@@ -1,6 +1,6 @@
 import MatchRow from '@/components/MatchRow';
 import TopCategories from '@/components/TopCategories';
-import { categories, worldCupMatches } from '@/lib/data';
+import { categories, worldCupMatches } from '@/lib/matches';
 
 function groupByDate() {
   return worldCupMatches.reduce<Record<string, typeof worldCupMatches>>((acc, match) => {

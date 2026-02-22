@@ -2,7 +2,7 @@
 
 import { formatUSDC } from '@/lib/utils';
 
-type OddsButtonProps = {
+type OddsBtnProps = {
   label: '1' | 'X' | '2';
   price: number;
   selected?: boolean;
@@ -10,13 +10,13 @@ type OddsButtonProps = {
   onClick?: () => void;
 };
 
-export default function OddsButton({
+export default function OddsBtn({
   label,
   price,
   selected,
   variation = 0,
   onClick,
-}: OddsButtonProps) {
+}: OddsBtnProps) {
   const isUp = variation > 0;
   const isDown = variation < 0;
 

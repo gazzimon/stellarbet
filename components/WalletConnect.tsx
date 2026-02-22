@@ -3,7 +3,7 @@
 import { useMemo, useState } from 'react';
 import { abbreviateKey } from '@/lib/utils';
 
-type WalletPanelProps = {
+type WalletConnectProps = {
   onWalletStatusChange: (payload: { connected: boolean; demoMode: boolean; publicKey?: string }) => void;
 };
 
@@ -12,7 +12,7 @@ type FreighterLike = {
   requestAccess?: () => Promise<string>;
 };
 
-export default function WalletPanel({ onWalletStatusChange }: WalletPanelProps) {
+export default function WalletConnect({ onWalletStatusChange }: WalletConnectProps) {
   const freighter = useMemo(() => {
     if (typeof window === 'undefined') return null;
     return (window as unknown as { freighterApi?: FreighterLike }).freighterApi ?? null;

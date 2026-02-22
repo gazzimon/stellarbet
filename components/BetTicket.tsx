@@ -1,9 +1,9 @@
 'use client';
 
 import { formatUSDC } from '@/lib/utils';
-import type { Match, Selection } from '@/lib/data';
+import type { Match, Selection } from '@/lib/matches';
 
-type TicketSummaryProps = {
+type BetTicketProps = {
   match: Match;
   selection: Selection;
   price: number;
@@ -18,14 +18,14 @@ const selectionLabel: Record<Selection, string> = {
   away: '2 (Visitante)',
 };
 
-export default function TicketSummary({
+export default function BetTicket({
   match,
   selection,
   price,
   amount,
   onAmountChange,
   canConfirm,
-}: TicketSummaryProps) {
+}: BetTicketProps) {
   const total = amount * price;
 
   return (
