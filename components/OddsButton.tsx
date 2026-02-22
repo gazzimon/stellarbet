@@ -10,9 +10,26 @@ type OddsButtonProps = {
   onClick?: () => void;
 };
 
-export default function OddsButton({ label, price, selected, variation = 0, onClick }: OddsButtonProps) {
-  const direction = variation > 0 ? '\u25B2' : variation < 0 ? '\u25BC' : '\u2014';
-  const variationColor = variation > 0 ? 'text-accent' : variation < 0 ? 'text-rose-400' : 'text-slate-400';
+export default function OddsButton({
+  label,
+  price,
+  selected,
+  variation = 0,
+  onClick,
+}: OddsButtonProps) {
+  const isUp = variation > 0;
+  const isDown = variation < 0;
+
+  let directionSymbol = '-';
+  let variationColor = 'text-slate-400';
+
+  if (isUp) {
+    directionSymbol = 'UP';
+    variationColor = 'text-accent';
+  } else if (isDown) {
+    directionSymbol = 'DN';
+    variationColor = 'text-rose-400';
+  }
 
   return (
     <button
@@ -26,9 +43,13 @@ export default function OddsButton({ label, price, selected, variation = 0, onCl
     >
       <div className="flex items-center justify-between text-xs">
         <span className="font-semibold text-slate-200">{label}</span>
-        <span className={`text-[10px] ${variationColor}`}>{direction}</span>
+        <span className={`text-[10px] ${variationColor}`}>
+          {directionSymbol}
+        </span>
       </div>
-      <div className="mt-1 text-sm font-bold text-odd">{formatUSDC(price)}</div>
+      <div className="mt-1 text-sm font-bold text-odd">
+        {formatUSDC(price)}
+      </div>
     </button>
   );
 }
