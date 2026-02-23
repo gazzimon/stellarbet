@@ -14,26 +14,26 @@ const marketTypes = [
 
 export default function MarketsPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-bg">
+    <div className="flex min-h-screen flex-col bg-bg">
       <TopNavBar />
-      
+
       <div className="flex flex-1 overflow-hidden">
         <LeftSidebar />
-        
+
         <main className="flex-1 overflow-y-auto">
           <div className="p-6">
-            <div className="flex items-center justify-between mb-6">
+            <div className="mb-6 flex items-center justify-between">
               <h1 className="text-3xl font-bold text-white">Sports</h1>
-              <button className="p-2 hover:bg-panel2 rounded-lg transition">
+              <button className="rounded-lg p-2 transition hover:bg-panel2">
                 <Settings className="h-5 w-5 text-slate-400" />
               </button>
             </div>
 
-            <div className="flex items-center gap-3 mb-6 overflow-x-auto pb-2">
+            <div className="mb-6 flex items-center gap-3 overflow-x-auto pb-2">
               {marketTypes.map((type) => (
                 <button
                   key={type.name}
-                  className={`px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap transition ${
+                  className={`whitespace-nowrap rounded-lg px-4 py-2 text-sm font-semibold transition ${
                     type.active
                       ? 'bg-emerald-600 text-white'
                       : 'bg-panel2 text-slate-400 hover:bg-panel hover:text-white'
@@ -52,31 +52,31 @@ export default function MarketsPage() {
           </div>
         </main>
 
-        <aside className="w-80 border-l border-line bg-bg p-6 overflow-y-auto">
+        <aside className="w-80 overflow-y-auto border-l border-line bg-bg p-6">
           <div className="space-y-4">
             <div className="flex items-start gap-3">
-              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-yellow-400 to-amber-500 flex items-center justify-center text-2xl">
-                ⚽
+              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-yellow-400 to-amber-500 text-sm font-bold text-black">
+                SB
               </div>
               <div className="flex-1">
-                <p className="text-xs text-slate-500 mb-1">Featured Market</p>
-                <p className="text-sm font-semibold text-white mb-1">World Cup 2026 Winner?</p>
-                <p className="text-emerald-400 text-sm font-semibold">Buy Yes • Argentina</p>
+                <p className="mb-1 text-xs text-slate-500">Featured Market</p>
+                <p className="mb-1 text-sm font-semibold text-white">World Cup 2026 Winner?</p>
+                <p className="text-sm font-semibold text-emerald-400">Buy Yes - Argentina</p>
               </div>
             </div>
 
             <div className="flex gap-2">
-              <button className="flex-1 py-2 rounded-lg bg-emerald-600 text-white text-sm font-semibold hover:bg-emerald-500 transition">
+              <button className="flex-1 rounded-lg bg-emerald-600 py-2 text-sm font-semibold text-white transition hover:bg-emerald-500">
                 Buy
               </button>
-              <button className="flex-1 py-2 rounded-lg bg-panel2 text-slate-400 text-sm font-semibold hover:bg-panel transition">
+              <button className="flex-1 rounded-lg bg-panel2 py-2 text-sm font-semibold text-slate-400 transition hover:bg-panel">
                 Sell
               </button>
             </div>
 
-            <div className="flex justify-between items-center">
+            <div className="flex items-center justify-between">
               <span className="text-xs text-slate-500">Switch to</span>
-              <button className="px-3 py-1.5 rounded-lg bg-panel2 text-xs font-semibold text-white hover:bg-panel transition flex items-center gap-2">
+              <button className="flex items-center gap-2 rounded-lg bg-panel2 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-panel">
                 Dollars
                 <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -85,21 +85,21 @@ export default function MarketsPage() {
             </div>
 
             <div>
-              <button className="w-full py-3 rounded-lg bg-emerald-600 text-white font-semibold hover:bg-emerald-500 transition">
-                Yes 82¢
+              <button className="w-full rounded-lg bg-emerald-600 py-3 font-semibold text-white transition hover:bg-emerald-500">
+                Yes 82c
               </button>
-              <button className="w-full mt-2 py-3 rounded-lg bg-red-600/10 border border-red-600 text-red-400 font-semibold hover:bg-red-600/20 transition">
-                No 19¢
+              <button className="mt-2 w-full rounded-lg border border-red-600 bg-red-600/10 py-3 font-semibold text-red-400 transition hover:bg-red-600/20">
+                No 19c
               </button>
             </div>
 
-            <div className="mt-4 p-4 rounded-lg bg-panel2 border border-line">
-              <p className="text-sm font-semibold text-white mb-1">Amount</p>
+            <div className="mt-4 rounded-lg border border-line bg-panel2 p-4">
+              <p className="mb-1 text-sm font-semibold text-white">Amount</p>
               <p className="text-2xl font-bold text-slate-600">$0</p>
-              <p className="text-xs text-emerald-400 mt-1">Earn 3.25% Interest</p>
+              <p className="mt-1 text-xs text-emerald-400">Earn 3.25% Interest</p>
             </div>
 
-            <button className="w-full py-3 rounded-lg bg-emerald-500 text-black font-bold hover:bg-emerald-400 transition">
+            <button className="w-full rounded-lg bg-emerald-500 py-3 font-bold text-black transition hover:bg-emerald-400">
               Sign up to trade
             </button>
           </div>
